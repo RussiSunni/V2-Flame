@@ -16,12 +16,9 @@ class _RightPanelState extends State<RightPanel> {
       // height: MediaQuery.of(context).size.height,
       height: 480,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ), //BorderRadius.all,
           border: Border.all(
-            color: Colors.white,
-            width: 2.0,
+            color: Colors.black,
+            width: 0.0,
           ),
           color: backgroundColor),
       child: const Image(

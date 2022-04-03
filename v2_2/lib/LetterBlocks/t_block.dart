@@ -6,7 +6,7 @@ class TBlock extends StatefulWidget {
 }
 
 class _TBlockState extends State<TBlock> {
-  Color backgroundColor = Color(0xff111111);
+  Color backgroundColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,17 @@ class _TBlockState extends State<TBlock> {
               Radius.circular(10),
             ), //BorderRadius.all,
             border: Border.all(
-              color: Colors.white,
+              color: Colors.black,
               width: 2.0,
             ),
             color: backgroundColor),
         child: Center(
           child: Text(
             "T",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+            ),
           ),
         ));
   }

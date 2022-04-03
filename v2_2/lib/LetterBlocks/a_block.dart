@@ -6,7 +6,7 @@ class ABlock extends StatefulWidget {
 }
 
 class _ABlockState extends State<ABlock> {
-  Color backgroundColor = Color(0xff111111);
+  Color backgroundColor = Colors.green;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,17 @@ class _ABlockState extends State<ABlock> {
               Radius.circular(10),
             ), //BorderRadius.all,
             border: Border.all(
-              color: Colors.white,
+              color: Colors.black,
               width: 2.0,
             ),
             color: backgroundColor),
         child: Center(
           child: Text(
             "A",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+            ),
           ),
         ));
   }

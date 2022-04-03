@@ -6,7 +6,7 @@ class CBlock extends StatefulWidget {
 }
 
 class _CBlockState extends State<CBlock> {
-  Color backgroundColor = Color(0xff111111);
+  Color backgroundColor = Colors.red;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,17 @@ class _CBlockState extends State<CBlock> {
               Radius.circular(10),
             ), //BorderRadius.all,
             border: Border.all(
-              color: Colors.white,
+              color: Colors.black,
               width: 2.0,
             ),
             color: backgroundColor),
         child: Center(
           child: Text(
             "C",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+            ),
           ),
         ));
   }

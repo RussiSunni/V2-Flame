@@ -6,7 +6,7 @@ class DBlock extends StatefulWidget {
 }
 
 class _DBlockState extends State<DBlock> {
-  Color backgroundColor = Color(0xff111111);
+  Color backgroundColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,17 @@ class _DBlockState extends State<DBlock> {
               Radius.circular(10),
             ), //BorderRadius.all,
             border: Border.all(
-              color: Colors.white,
+              color: Colors.black,
               width: 2.0,
             ),
             color: backgroundColor),
         child: Center(
           child: Text(
             "D",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+            ),
           ),
         ));
   }
