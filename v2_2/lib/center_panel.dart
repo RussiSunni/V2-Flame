@@ -35,6 +35,12 @@ class CenterPanel extends StatefulWidget {
 class _CenterPanelState extends State<CenterPanel> {
   Color backgroundColor = Color(0xff111111);
 
+  String letter = "";
+
+  Widget? letterBlock1;
+  Widget? letterBlock2;
+  Widget? letterBlock3;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -69,6 +75,105 @@ class _CenterPanelState extends State<CenterPanel> {
                   YBlock(),
                   XBlock(),
                   WBlock(),
+                ]),
+                Column(children: [
+                  Image(
+                      image: AssetImage(
+                        'images/cat.png',
+                      ),
+                      width: 240,
+                      height: 240),
+                  Row(
+                    children: [
+                      DragTarget<Widget>(
+                        builder: (
+                          BuildContext context,
+                          List<dynamic> accepted,
+                          List<dynamic> rejected,
+                        ) {
+                          return Container(
+                            margin: EdgeInsets.all(10),
+                            height: 60.0,
+                            width: 60.0,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 2.0,
+                              ),
+                            ),
+                            child: letterBlock1,
+                          );
+                        },
+                        onAccept: (data) {
+                          setState(() {
+                            letterBlock1 = data;
+                          });
+                        },
+                      ),
+                      DragTarget<Widget>(
+                        builder: (
+                          BuildContext context,
+                          List<dynamic> accepted,
+                          List<dynamic> rejected,
+                        ) {
+                          return Container(
+                            margin: EdgeInsets.all(10),
+                            height: 60.0,
+                            width: 60.0,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 2.0,
+                              ),
+                            ),
+                            child: letterBlock2,
+                          );
+                        },
+                        onAccept: (data) {
+                          setState(() {
+                            letterBlock2 = data;
+                          });
+                        },
+                      ),
+                      DragTarget<Widget>(
+                        builder: (
+                          BuildContext context,
+                          List<dynamic> accepted,
+                          List<dynamic> rejected,
+                        ) {
+                          return Container(
+                            margin: EdgeInsets.all(10),
+                            height: 60.0,
+                            width: 60.0,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 2.0,
+                              ),
+                            ),
+                            child: letterBlock3,
+                          );
+                        },
+                        onAccept: (data) {
+                          setState(() {
+                            letterBlock3 = data;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
                 ]),
                 Column(children: [
                   IBlock(),
