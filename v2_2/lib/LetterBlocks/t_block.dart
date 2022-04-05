@@ -6,30 +6,56 @@ class TBlock extends StatefulWidget {
 }
 
 class _TBlockState extends State<TBlock> {
-  Color backgroundColor = Colors.blue;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 60,
+    return Draggable(
+      feedback: Container(
         height: 60,
+        width: 60,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ), //BorderRadius.all,
-            border: Border.all(
-              color: Colors.black,
-              width: 2.0,
-            ),
-            color: backgroundColor),
-        child: Center(
+          color: Colors.blue,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          border: Border.all(
+            color: Colors.black,
+            width: 2.0,
+          ),
+        ),
+        child: const Center(
           child: Text(
-            "T",
+            'T',
             style: TextStyle(
               color: Colors.black,
               fontSize: 36,
             ),
           ),
-        ));
+        ),
+      ),
+      child: Container(
+        height: 60.0,
+        width: 60.0,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          border: Border.all(
+            color: Colors.black,
+            width: 2.0,
+          ),
+        ),
+        child: const Center(
+          child: Text(
+            'T',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+            ),
+          ),
+        ),
+      ),
+      data: TBlock(),
+    );
   }
 }

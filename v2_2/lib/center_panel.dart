@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'target_blocks.dart';
 import 'LetterBlocks/a_block.dart';
 import 'LetterBlocks/b_block.dart';
 import 'LetterBlocks/c_block.dart';
@@ -83,97 +84,7 @@ class _CenterPanelState extends State<CenterPanel> {
                       ),
                       width: 240,
                       height: 240),
-                  Row(
-                    children: [
-                      DragTarget<Widget>(
-                        builder: (
-                          BuildContext context,
-                          List<dynamic> accepted,
-                          List<dynamic> rejected,
-                        ) {
-                          return Container(
-                            margin: EdgeInsets.all(10),
-                            height: 60.0,
-                            width: 60.0,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: letterBlock1,
-                          );
-                        },
-                        onAccept: (data) {
-                          setState(() {
-                            letterBlock1 = data;
-                          });
-                        },
-                      ),
-                      DragTarget<Widget>(
-                        builder: (
-                          BuildContext context,
-                          List<dynamic> accepted,
-                          List<dynamic> rejected,
-                        ) {
-                          return Container(
-                            margin: EdgeInsets.all(10),
-                            height: 60.0,
-                            width: 60.0,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: letterBlock2,
-                          );
-                        },
-                        onAccept: (data) {
-                          setState(() {
-                            letterBlock2 = data;
-                          });
-                        },
-                      ),
-                      DragTarget<Widget>(
-                        builder: (
-                          BuildContext context,
-                          List<dynamic> accepted,
-                          List<dynamic> rejected,
-                        ) {
-                          return Container(
-                            margin: EdgeInsets.all(10),
-                            height: 60.0,
-                            width: 60.0,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: letterBlock3,
-                          );
-                        },
-                        onAccept: (data) {
-                          setState(() {
-                            letterBlock3 = data;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
+                  TargetBlocks(),
                 ]),
                 Column(children: [
                   IBlock(),
