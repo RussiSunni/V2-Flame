@@ -7,17 +7,15 @@ class TargetBlocks extends StatefulWidget {
 }
 
 class _TargetBlocksState extends State<TargetBlocks> {
-  Color backgroundColor = Color(0xff111111);
+  var widgets = List<Widget?>.filled(Question1().letterNumber, null);
 
-  int letterBlockNumber = Question1().letterNumber;
-
-  var letterBlocks = List<Widget?>.filled(Question1().letterNumber, null);
+  var answerOption;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        for (var i in letterBlocks)
+        for (int i = 0; i < Question1().letterNumber; i++)
           DragTarget<Widget>(
             builder: (
               BuildContext context,
@@ -38,12 +36,12 @@ class _TargetBlocksState extends State<TargetBlocks> {
                     width: 2.0,
                   ),
                 ),
-                child: letterBlocks[0],
+                child: widgets[i],
               );
             },
             onAccept: (data) {
               setState(() {
-                letterBlocks[0] = data;
+                widgets[i] = data;
               });
             },
           ),
