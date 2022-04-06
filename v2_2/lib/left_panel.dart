@@ -10,11 +10,8 @@ class _LeftPanelState extends State<LeftPanel> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //width: MediaQuery.of(context).size.width / 4,
-      width: 240,
-      // height: MediaQuery.of(context).size.height,
-      height: 480,
+    return Expanded(
+        child: Container(
       decoration: BoxDecoration(
           border: Border.all(
             color: Colors.black,
@@ -22,8 +19,8 @@ class _LeftPanelState extends State<LeftPanel> {
           ),
           color: backgroundColor),
       child: const Image(
-        image: AssetImage('images/artemis.png'),
+        image: AssetImage('assets/images/artemis.png'),
       ),
-    );
+    ));
   }
 }

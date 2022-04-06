@@ -25,8 +25,8 @@ class _TargetBlocksState extends State<TargetBlocks> {
             ) {
               return Container(
                 margin: EdgeInsets.all(10),
-                height: 60.0,
-                width: 60.0,
+                height: MediaQuery.of(context).size.width / 8,
+                width: MediaQuery.of(context).size.width / 8,
                 decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.all(

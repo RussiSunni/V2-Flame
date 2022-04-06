@@ -36,19 +36,11 @@ class CenterPanel extends StatefulWidget {
 class _CenterPanelState extends State<CenterPanel> {
   Color backgroundColor = Color(0xff111111);
 
-  String letter = "";
-
-  Widget? letterBlock1;
-  Widget? letterBlock2;
-  Widget? letterBlock3;
-
   @override
   Widget build(BuildContext context) {
     return Container(
-        //alignment: Alignment.topCenter,
-        width: 480,
-        // height: MediaQuery.of(context).size.height,
-        height: 480,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             border: Border.all(
               color: Colors.white,
@@ -80,10 +72,10 @@ class _CenterPanelState extends State<CenterPanel> {
                 Column(children: [
                   Image(
                       image: AssetImage(
-                        'images/cat.png',
+                        'assets/images/cat.png',
                       ),
-                      width: 240,
-                      height: 240),
+                      width: MediaQuery.of(context).size.height / 4,
+                      height: MediaQuery.of(context).size.height / 4),
                   TargetBlocks(),
                 ]),
                 Column(children: [

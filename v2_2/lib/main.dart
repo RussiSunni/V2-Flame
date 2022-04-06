@@ -16,10 +16,10 @@ class App2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+    // SystemChrome.setPreferredOrientations([
+    //   DeviceOrientation.landscapeLeft,
+    //   DeviceOrientation.landscapeRight,
+    // ]);
     return MaterialApp(
       title: 'V2.2',
       theme: ThemeData(
@@ -45,20 +45,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            LeftPanel(),
-            CenterPanel(),
-            RightPanel(),
-          ],
-        ),
-      ),
+          child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              LeftPanel(),
+              RightPanel(),
+            ],
+          ),
+          CenterPanel(),
+        ],
+      )),
     );
   }
 }

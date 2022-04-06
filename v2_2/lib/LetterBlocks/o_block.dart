@@ -11,8 +11,8 @@ class _OBlockState extends State<OBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 60,
-        height: 60,
+        height: MediaQuery.of(context).size.width / 8,
+        width: MediaQuery.of(context).size.width / 8,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(10),

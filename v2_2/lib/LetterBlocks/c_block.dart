@@ -10,8 +10,8 @@ class _CBlockState extends State<CBlock> {
   Widget build(BuildContext context) {
     return Draggable(
         feedback: Container(
-          height: 60,
-          width: 60,
+          height: MediaQuery.of(context).size.height / 8,
+          width: MediaQuery.of(context).size.height / 8,
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.all(
@@ -33,8 +33,8 @@ class _CBlockState extends State<CBlock> {
           ),
         ),
         child: Container(
-          height: 60.0,
-          width: 60.0,
+          height: MediaQuery.of(context).size.width / 8,
+          width: MediaQuery.of(context).size.width / 8,
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.all(
