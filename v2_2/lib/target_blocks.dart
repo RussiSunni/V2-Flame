@@ -57,8 +57,10 @@ class _TargetBlocksState extends State<TargetBlocks> {
                   }
                 }
                 if (allCorrect == true) {
-                  print("all correct");
                   changeQuestion();
+                  for (int i = 0; i < widgets.length; i++) {
+                    widgets[i] = null;
+                  }
                 }
               });
             },
