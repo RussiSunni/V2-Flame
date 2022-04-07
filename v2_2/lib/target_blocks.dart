@@ -1,16 +1,19 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'questions.dart';
 
 class TargetBlocks extends StatefulWidget {
   @override
-  State<TargetBlocks> createState() => _TargetBlocksState();
+  final VoidCallback changeQuestion;
+  TargetBlocks(this.changeQuestion);
+  State<TargetBlocks> createState() => _TargetBlocksState(changeQuestion);
 }
 
 class _TargetBlocksState extends State<TargetBlocks> {
   var widgets = List<Widget?>.filled(Question1().letterNumber, null);
   var isLetterCorrect = List<bool?>.filled(Question1().letterNumber, false);
+
+  final VoidCallback changeQuestion;
+  _TargetBlocksState(this.changeQuestion);
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +58,7 @@ class _TargetBlocksState extends State<TargetBlocks> {
                 }
                 if (allCorrect == true) {
                   print("all correct");
+                  changeQuestion();
                 }
               });
             },

@@ -35,6 +35,17 @@ class CenterPanel extends StatefulWidget {
 
 class _CenterPanelState extends State<CenterPanel> {
   Color backgroundColor = Color(0xff111111);
+  String image = "cat";
+  var questionImage = Image.asset('assets/images/cat.png');
+
+  String questionImageString = 'assets/images/cat.png';
+
+  void changeQuestion() {
+    setState(() {
+      print("change question");
+      questionImageString = "assets/images/dog.png";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +83,11 @@ class _CenterPanelState extends State<CenterPanel> {
                 Column(children: [
                   Image(
                       image: AssetImage(
-                        'assets/images/cat.png',
+                        questionImageString,
                       ),
                       width: MediaQuery.of(context).size.height / 4,
                       height: MediaQuery.of(context).size.height / 4),
-                  TargetBlocks(),
+                  TargetBlocks(changeQuestion),
                 ]),
                 Column(children: [
                   IBlock(),
