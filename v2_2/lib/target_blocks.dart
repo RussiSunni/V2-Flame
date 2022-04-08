@@ -14,6 +14,7 @@ class _TargetBlocksState extends State<TargetBlocks> {
     QuestionList().question2
   ];
 
+  var widgetList = List<Widget?>.filled(3, null);
   var isLetterCorrect = List<bool?>.filled(3, false);
   bool answerCorrect = false;
 
@@ -47,14 +48,13 @@ class _TargetBlocksState extends State<TargetBlocks> {
                     width: 2.0,
                   ),
                 ),
-                child: answerCorrect ? null : questionList[0].answerWidgets[i],
+                child: widgetList[i],
               );
             },
             onAccept: (data) {
               setState(() {
                 if (data == questionList[0].answerBlocks[i]) {
-                  questionList[0].answerWidgets[i] =
-                      questionList[0].answerWidgets[i];
+                  widgetList[i] = questionList[0].answerWidgets[i];
                   isLetterCorrect[i] = true;
                 }
 
