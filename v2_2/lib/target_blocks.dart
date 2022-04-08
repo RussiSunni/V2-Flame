@@ -9,17 +9,24 @@ class TargetBlocks extends StatefulWidget {
 }
 
 class _TargetBlocksState extends State<TargetBlocks> {
-  var widgets = List<Widget?>.filled(Question1().letterNumber, null);
-  var isLetterCorrect = List<bool?>.filled(Question1().letterNumber, false);
+  List<Question> questionList = [
+    QuestionList().question1,
+    QuestionList().question2
+  ];
 
-  final VoidCallback changeQuestion;
-  _TargetBlocksState(this.changeQuestion);
+  var isLetterCorrect = List<bool?>.filled(3, false);
+  bool answerCorrect = false;
+
+  final VoidCallback changeQuestionCallback;
+  _TargetBlocksState(this.changeQuestionCallback);
+
+  void changeQuestion() {}
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        for (int i = 0; i < Question1().letterNumber; i++)
+        for (int i = 0; i < questionList[0].letterNumber; i++)
           DragTarget<String>(
             builder: (
               BuildContext context,
@@ -40,26 +47,30 @@ class _TargetBlocksState extends State<TargetBlocks> {
                     width: 2.0,
                   ),
                 ),
-                child: widgets[i],
+                child: answerCorrect ? null : questionList[0].answerWidgets[i],
               );
             },
             onAccept: (data) {
               setState(() {
-                if (data == Question1().answerBlocks[i]) {
-                  widgets[i] = Question1().answerWidgets[i];
+                if (data == questionList[0].answerBlocks[i]) {
+                  questionList[0].answerWidgets[i] =
+                      questionList[0].answerWidgets[i];
                   isLetterCorrect[i] = true;
                 }
 
                 bool allCorrect = true;
-                for (int i = 0; i < Question1().letterNumber; i++) {
+                for (int i = 0; i < questionList[0].letterNumber; i++) {
                   if (isLetterCorrect[i] == false) {
                     allCorrect = false;
                   }
                 }
                 if (allCorrect == true) {
+                  changeQuestionCallback();
                   changeQuestion();
-                  for (int i = 0; i < widgets.length; i++) {
-                    widgets[i] = null;
+                  for (int i = 0;
+                      i < questionList[0].answerWidgets.length;
+                      i++) {
+                    answerCorrect = true;
                   }
                 }
               });

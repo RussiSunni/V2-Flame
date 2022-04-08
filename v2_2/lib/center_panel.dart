@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'target_blocks.dart';
+import 'questions.dart';
 import 'LetterBlocks/a_block.dart';
 import 'LetterBlocks/b_block.dart';
 import 'LetterBlocks/c_block.dart';
@@ -35,15 +36,15 @@ class CenterPanel extends StatefulWidget {
 
 class _CenterPanelState extends State<CenterPanel> {
   Color backgroundColor = Color(0xff111111);
-  String image = "cat";
-  var questionImage = Image.asset('assets/images/cat.png');
-
-  String questionImageString = 'assets/images/cat.png';
+  List<Question> questionList = [
+    QuestionList().question1,
+    QuestionList().question2
+  ];
+  // String questionImageString = questionList[0].questionImage;
 
   void changeQuestion() {
     setState(() {
-      print("change question");
-      questionImageString = "assets/images/dog.png";
+      //  questionImageString = "assets/images/dog.png";
     });
   }
 
@@ -83,7 +84,7 @@ class _CenterPanelState extends State<CenterPanel> {
                 Column(children: [
                   Image(
                       image: AssetImage(
-                        questionImageString,
+                        questionList[0].questionImage,
                       ),
                       width: MediaQuery.of(context).size.height / 4,
                       height: MediaQuery.of(context).size.height / 4),
