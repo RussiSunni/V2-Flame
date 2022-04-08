@@ -17,17 +17,20 @@ class _TargetBlocksState extends State<TargetBlocks> {
   var widgetList = List<Widget?>.filled(3, null);
   var isLetterCorrect = List<bool?>.filled(3, false);
   bool answerCorrect = false;
+  int questionNumber = 0;
 
   final VoidCallback changeQuestionCallback;
   _TargetBlocksState(this.changeQuestionCallback);
 
-  void changeQuestion() {}
+  void changeQuestion() {
+    questionNumber++;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        for (int i = 0; i < questionList[0].letterNumber; i++)
+        for (int i = 0; i < questionList[questionNumber].letterNumber; i++)
           DragTarget<String>(
             builder: (
               BuildContext context,
@@ -48,18 +51,20 @@ class _TargetBlocksState extends State<TargetBlocks> {
                     width: 2.0,
                   ),
                 ),
-                child: widgetList[i],
+                child: answerCorrect ? null : widgetList[i],
               );
             },
             onAccept: (data) {
               setState(() {
-                if (data == questionList[0].answerBlocks[i]) {
-                  widgetList[i] = questionList[0].answerWidgets[i];
+                if (data == questionList[questionNumber].answerBlocks[i]) {
+                  widgetList[i] = questionList[questionNumber].answerWidgets[i];
                   isLetterCorrect[i] = true;
                 }
 
                 bool allCorrect = true;
-                for (int i = 0; i < questionList[0].letterNumber; i++) {
+                for (int i = 0;
+                    i < questionList[questionNumber].letterNumber;
+                    i++) {
                   if (isLetterCorrect[i] == false) {
                     allCorrect = false;
                   }
@@ -68,7 +73,7 @@ class _TargetBlocksState extends State<TargetBlocks> {
                   changeQuestionCallback();
                   changeQuestion();
                   for (int i = 0;
-                      i < questionList[0].answerWidgets.length;
+                      i < questionList[questionNumber].answerWidgets.length;
                       i++) {
                     answerCorrect = true;
                   }

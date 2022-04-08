@@ -40,11 +40,11 @@ class _CenterPanelState extends State<CenterPanel> {
     QuestionList().question1,
     QuestionList().question2
   ];
-  // String questionImageString = questionList[0].questionImage;
+  int questionNumber = 0;
 
   void changeQuestion() {
     setState(() {
-      //  questionImageString = "assets/images/dog.png";
+      questionNumber++;
     });
   }
 
@@ -84,7 +84,7 @@ class _CenterPanelState extends State<CenterPanel> {
                 Column(children: [
                   Image(
                       image: AssetImage(
-                        questionList[0].questionImage,
+                        questionList[questionNumber].questionImage,
                       ),
                       width: MediaQuery.of(context).size.height / 4,
                       height: MediaQuery.of(context).size.height / 4),
